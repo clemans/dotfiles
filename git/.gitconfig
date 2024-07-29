@@ -1,0 +1,29 @@
+[alias]
+    ch = checkout
+    br = branch
+    co = commit
+    st = status
+    ls = log --oneline --graph --decorate --show-signature --all
+
+[core]
+	safecrlf = true
+	autocrlf = input
+	editor = vim
+
+[credential "https://github.com"]
+	helper = manager
+
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+
+[includeIf "gitdir:~/code/github/"]
+	path = ~/.git/conf/github.conf
+
+[includeIf "gitdir:~/code/gitlab/"]
+	path = ~/.git/conf/gitlab.conf
+
+[init]
+	defaultBranch = main
+
+[safe]
+	directory = ~/code/
