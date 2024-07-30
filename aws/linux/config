@@ -1,0 +1,14 @@
+#
+# # clemans.net
+# 
+[default]
+credential_process=aws-vault --backend=pass --prompt=terminal export --format=json AWS/clemans-net/$CLIENT_USER_ID/access
+mfa_process=pass otp AWS/clemans-net/$CLIENT_USER_ID/mfa
+mfa_serial=arn:aws:iam::$AWS_ACCOUNT_ID:mfa/$CLIENT_USER_ID
+region=us-east-1
+output=json
+#s3=signature_version=s3v4
+
+[profile clemans-net]
+role_arn=arn:aws:iam::$AWS_ACCOUNT_ID:role/clemans-net/roles/ClemansNet_AdministratorRole
+source_profile=default
