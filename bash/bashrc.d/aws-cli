@@ -1,0 +1,16 @@
+# Check if the aws_completer soft link exists in /usr/local/bin
+if [ ! -L /usr/local/bin/aws_completer ]; then
+    # Find the location of aws_completer
+    aws_completer_location=$(which aws_completer)
+
+    # If aws_completer is found, create a symbolic link in /usr/local/bin
+    if [ -n "$aws_completer_location" ]; then
+        sudo ln -s "$aws_completer_location" /usr/local/bin/aws_completer
+    else
+        echo "Error: aws_completer not found. Please make sure AWS CLI is installed."
+    fi
+fi
+
+complete -C '/usr/local/bin/aws_completer' aws
+
+export AWS_CONF_DIR=~/.aws/conf
