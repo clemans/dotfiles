@@ -3,4 +3,4 @@
 Example: 
 - 01-terminal.rc
 - 02-aws-cli.rc
-- etc.
+...

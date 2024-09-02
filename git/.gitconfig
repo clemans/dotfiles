@@ -11,19 +11,19 @@
 	editor = vim
 
 [credential "https://github.com"]
-	helper = manager
+	helper = store
 
 [credential "https://dev.azure.com"]
 	useHttpPath = true
 
-[includeIf "gitdir:~/code/github/"]
+[includeIf "gitdir/i:~/code/github/"]
 	path = ~/.git/conf/github.conf
 
-[includeIf "gitdir:~/code/gitlab/"]
+[includeIf "gitdir/i:~/code/gitlab/"]
 	path = ~/.git/conf/gitlab.conf
 
 [init]
 	defaultBranch = main
 
 [safe]
-	directory = ~/code/
+	directory = gitdir/i:~/code/
